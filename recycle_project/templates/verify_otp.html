@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-primary text-center">Verify Your Email Address</h2>
+    <p class="text-center">An OTP has been sent to <strong>{{ email }}</strong>. Please enter it below to complete your registration.</p>
+
+    <form method="POST" class="p-4 bg-light shadow rounded">
+        {{ form.hidden_tag() }}
+        <div class="mb-3">
+            {{ form.otp.label(class="form-label") }}
+            {{ form.otp(class="form-control") }}
+            {% if form.otp.errors %}
+                <div class="alert alert-danger mt-1">
+                    {% for error in form.otp.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+        <div class="d-grid gap-2">
+            {{ form.submit(class="btn btn-primary") }}
+        </div>
+    </form>
+    <div class="text-center mt-3">
+        <small>Didn't receive an OTP? You might need to <a href="{{ url_for('users.register') }}">re-register</a> to get a new one.</small>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+            <h2>{{ title }}</h2>
+            
+            <h5>Written by: {{ blog_post.author.username }}</h5>
+            
+            <h6>Published: {{ blog_post.date.strftime('%B %d, %Y') }}</h6>
+        </div>
+        <div class="card-body">
+            
+            <p class="text-muted">{{ blog_post.text }}</p>
+
+            
+            {% if blog_post.author == current_user %}
+            <div class="d-flex justify-content-between mt-4">
+                {# Corrected: Used blog_post.id instead of post.id #}
+                <a href="{{ url_for('blog_posts.update', blog_post_id=blog_post.id) }}" class="btn btn-warning">
+                    Update
+                </a>
+                {# Corrected: Used blog_post.id instead of post.id #}
+                <a href="#" class="btn btn-danger" onclick="confirmDeletion('{{ url_for('blog_posts.delete', blog_post_id=blog_post.id) }}')">
+                    Delete
+                </a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<script>
+function confirmDeletion(deleteUrl) {
+    if (confirm("Are you sure you want to delete this post? This action cannot be undone.")) {
+        window.location.href = deleteUrl;
+    }
+}
+</script>
+
+{% endblock %}

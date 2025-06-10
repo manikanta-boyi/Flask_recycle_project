@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <h2 class="text-center text-primary">Recycle AI Bot</h2>
+
+    <form method="POST" class="p-4 bg-light shadow rounded">
+        
+        <div class="mb-3">
+            <label for="itemInput" class="form-label">Enter a household item:</label>
+            <input type="text" class="form-control" id="itemInput" name="item" required>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Get Ideas</button>
+    </form>
+
+    {% if suggestion %}
+    <div class="p-4 bg-success text-white rounded mt-4" style="white-space: pre-wrap; max-height: 400px; overflow-y: auto;">
+        
+        <h4 class="mb-3">AI Suggestion:</h4>
+        {{ suggestion }} 
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}
