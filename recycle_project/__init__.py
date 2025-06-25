@@ -53,12 +53,14 @@ from recycle_project.core.views import core
 from recycle_project.error_pages.handlers import error_pages
 from recycle_project.users.views import users
 from recycle_project.blog_posts.views import blog_posts
+from recycle_project.api.views import api
 
 
 app.register_blueprint(core)
 app.register_blueprint(users)
 app.register_blueprint(error_pages)
 app.register_blueprint(blog_posts)
+app.register_blueprint(api)
 
 
 

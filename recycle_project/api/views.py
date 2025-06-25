@@ -13,7 +13,7 @@ api = Blueprint('api',__name__,url_prefix='/api/v1')
 #function to serialize Post object to a dictionary
 def serialize_post(post):
 
-    return {'id':post.id,'title':post.title,'content':post.text,'auther_id':post.user_id,'auther_name':post.auther.username,
+    return {'id':post.id,'title':post.title,'content':post.text,'auther_id':post.user_id,'auther_name':post.author.username,
             'date_posted':post.date.isoformat(),'url':url_for('api.get_single_post',post_id=post.id, _external=True)}
 
 def error_response(message, status_code=400):
