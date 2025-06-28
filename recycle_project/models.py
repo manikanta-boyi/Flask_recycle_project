@@ -67,7 +67,7 @@ class OTP(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(120), unique=False, nullable=False)
     username = db.Column(db.String(64), nullable=False) # New: to store username
-    temp_password_hash = db.Column(db.String(128), nullable=False) # New: to store hashed password temporarily
+    temp_password_hash = db.Column(db.String(512), nullable=False) # New: to store hashed password temporarily
     otp_code = db.Column(db.String(6), nullable=False) # 6-digit OTP
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.datetime.now)
     expires_at = db.Column(db.DateTime, nullable=False) # When the OTP expires
