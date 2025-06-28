@@ -1,0 +1,1 @@
+web: gunicorn recycle_project:app

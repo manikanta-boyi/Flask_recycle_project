@@ -26,7 +26,7 @@ mail = Mail(app) # Initialize Flask-Mail
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
-app.config['SQLALCHEMY_DATABASE_URI']= 'sqlite:///'+os.path.join(basedir,'sqlite.data') #path for database file. if isnt there it will create
+app.config['SQLALCHEMY_DATABASE_URI']=os.environ.get('DATABASE_URL') or 'sqlite:///'+os.path.join(basedir,'sqlite.data') # used "or " for deployment purpose
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']= False
 
 db = SQLAlchemy(app) # setup for database
@@ -53,7 +53,7 @@ from recycle_project.core.views import core
 from recycle_project.error_pages.handlers import error_pages
 from recycle_project.users.views import users
 from recycle_project.blog_posts.views import blog_posts
-from recycle_project.api.views import api
+from recycle_project.api.endpoints import api
 
 
 app.register_blueprint(core)
