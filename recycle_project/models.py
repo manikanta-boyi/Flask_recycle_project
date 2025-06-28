@@ -16,7 +16,7 @@ def load_user(user_id):
 class Users(db.Model,UserMixin):
 
     __tablename__ = 'users'
-    __table_args__ = {"scema":'recycle_project_schema'} # added this schema because i have only one database ind Render
+    __table_args__ = {"schema":'recycle_project_schema'} # added this schema because i have only one database ind Render
 
     id = db.Column(db.Integer(),primary_key = True)
     profile_pic = db.Column(db.String(64),nullable=False,default='default_profile.png')
@@ -44,7 +44,7 @@ class Posts(db.Model):
     
 
     id = db.Column(db.Integer,primary_key=True)
-    user_id = db.Column(db.Integer,db.ForeignKey('users.id'),nullable = False) # connecting posts to user
+    user_id = db.Column(db.Integer,db.ForeignKey('recycle_project_schema.users.id'),nullable = False) # connecting posts to user
     date = db.Column(db.DateTime,nullable=False,default=datetime.datetime.now(UTC))
     title = db.Column(db.String(128),nullable =False)
     text = db.Column(db.Text,nullable=False)
@@ -63,7 +63,7 @@ class Posts(db.Model):
 class OTP(db.Model):
 
     __table_args__ = {'schema': 'recycle_project_schema'}
-    
+
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(120), unique=False, nullable=False)
     username = db.Column(db.String(64), nullable=False) # New: to store username

@@ -9,7 +9,7 @@ from flask_mail import Mail, Message
 
 app = Flask(__name__) # initialising application
 
-app.config['SECRET_KEY']='mysecretkey'
+app.config['SECRET_KEY']=os.environ.get('SECRET_KEY')
 
 # Flask-Mail Configuration
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
