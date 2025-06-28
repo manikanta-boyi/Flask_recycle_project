@@ -22,7 +22,7 @@ class Users(db.Model,UserMixin):
     profile_pic = db.Column(db.String(64),nullable=False,default='default_profile.png')
     email = db.Column(db.String(64),unique = True,index=True)
     username = db.Column(db.String(64),unique=True,index=True)
-    password_hash = db.Column(db.String(128))
+    password_hash = db.Column(db.String(512))
     posts = db.relationship('Posts',backref='author',lazy=True)
 
     def __init__(self,email,username,password):
