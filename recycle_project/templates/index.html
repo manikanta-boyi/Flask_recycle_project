@@ -4,10 +4,9 @@
 {% block title %}Recycle Project - Home{% endblock %}
 
 {% block content %} 
-
-    <div class="jumbotron text-center bg-light p-4 shadow-sm my-4"> 
-        <h1 class="display-4">Recycle World</h1>
-        <p class="lead">Your guide to a greener, more sustainable lifestyle.</p>
+    <div class="p-5 mb-4 bg-light rounded-3 text-center">
+        <h1 class="display-4 fw-bold text-primary">Recycle World</h1>
+        <p class="lead text-muted">Your guide to a greener, more sustainable lifestyle. 🌿</p>
         <hr class="my-4">
         <p>Explore creative recycling ideas, connect with our community, and contribute to a healthier planet.</p>
         <a class="btn btn-primary btn-lg" href="{{ url_for('core.info') }}" role="button">Learn More</a>
@@ -16,21 +15,27 @@
     <div class="row"> 
         {% for post in blog_posts.items %}
         <div class="col-md-6 col-lg-4 mb-4">
-            <div class="card shadow-sm">
+            <div class="card blog-card shadow-sm h-100">
                 <div class="card-body">
-                    <h2 class="card-title">
-                        <a href="{{ url_for('blog_posts.blog_post', blog_post_id=post.id) }}" class="text-decoration-none">
-                            {{ post.title }}
-                        </a>
-                    </h2>
-                    <p class="text-muted">
-                        <a href="{{ url_for('users.user_post', username=post.author.username) }}" class="text-decoration-none">
-                            Written by: {{ post.author.username }}
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fas fa-seedling fa-2x text-success me-3"></i>
+                        <h2 class="card-title fw-bold m-0">
+                            <a href="{{ url_for('blog_posts.blog_post', blog_post_id=post.id) }}" class="text-decoration-none text-dark">
+                                {{ post.title }}
+                            </a>
+                        </h2>
+                    </div>
+                    
+                    <p class="text-muted small">
+                        Written by: 
+                        <a href="{{ url_for('users.user_post', username=post.author.username) }}" class="text-decoration-none text-primary">
+                            {{ post.author.username }}
                         </a>
                     </p>
-                    <p class="small text-muted">Published on: {{ post.date.strftime('%B %d, %Y') }}</p>
-                    <a href="{{ url_for('blog_posts.blog_post', blog_post_id=post.id) }}" class="btn btn-primary">
-                        Read Blog Post
+                    <p class="small text-muted mb-3">Published on: {{ post.date.strftime('%B %d, %Y') }}</p>
+                    <p class="card-text">{{ post.text[:100] }}...</p>
+                    <a href="{{ url_for('blog_posts.blog_post', blog_post_id=post.id) }}" class="btn btn-outline-primary btn-sm mt-3">
+                        Read More
                     </a>
                 </div>
             </div>

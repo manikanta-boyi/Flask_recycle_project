@@ -1,26 +1,31 @@
 {% extends 'base.html' %}
 
+{% block title %}Recycle AI Bot{% endblock %}
+
 {% block content %}
-
-<div class="container mt-5">
-    <h2 class="text-center text-primary">Recycle AI Bot</h2>
-
-    <form method="POST" class="p-4 bg-light shadow rounded">
-        
-        <div class="mb-3">
-            <label for="itemInput" class="form-label">Enter a household item:</label>
-            <input type="text" class="form-control" id="itemInput" name="item" required>
+<div class="container my-5">
+    <div class="card shadow-lg p-4 rounded-3">
+        <div class="card-body text-center">
+            <h2 class="card-title text-primary fw-bold mb-4">Recycle AI Bot</h2>
+            <p class="card-text text-muted mb-4">
+                Enter a household item and get creative recycling ideas instantly!
+            </p>
+            <form method="POST" class="needs-validation" novalidate>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control form-control-lg rounded-pill" id="itemInput" name="item" placeholder="e.g., Plastic bottle, old t-shirt..." required>
+                    <button type="submit" class="btn btn-primary btn-lg rounded-pill ms-2"><i class="fas fa-search me-2"></i> Get Ideas</button>
+                </div>
+            </form>
         </div>
-        <button type="submit" class="btn btn-primary w-100">Get Ideas</button>
-    </form>
+    </div>
 
     {% if suggestion %}
-    <div class="p-4 bg-success text-white rounded mt-4" style="white-space: pre-wrap; max-height: 400px; overflow-y: auto;">
-        
-        <h4 class="mb-3">AI Suggestion:</h4>
-        {{ suggestion }} 
+    <div class="card shadow mt-4 p-4 rounded-3 bg-light">
+        <div class="card-body">
+            <h4 class="card-title text-success mb-3"><i class="fas fa-robot me-2"></i> AI Suggestion:</h4>
+            <pre class="card-text text-dark" style="white-space: pre-wrap;">{{ suggestion }}</pre>
+        </div>
     </div>
     {% endif %}
 </div>
-
 {% endblock %}

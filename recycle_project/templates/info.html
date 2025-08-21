@@ -1,50 +1,61 @@
 {% extends 'base.html' %}
 
+{% block title %}About Recycle Project{% endblock %}
+
 {% block content %}
+<div class="container my-5">
+    <div class="text-center mb-5"> 
+        <h1 class="display-4 text-primary fw-bold">About the Recycle Project</h1>
+        <p class="lead text-muted mt-3">Building a Sustainable Future Together 🌍</p>
+    </div>
 
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <p class="fs-5 text-dark-emphasis mb-4">
+                At the Recycle Project, our mission is to empower individuals and communities to embrace responsible waste management and create a more sustainable planet. We understand the growing challenges of waste accumulation and the vital role recycling plays in preserving our natural resources and reducing environmental impact.
+            </p>
+            <p class="fs-5 text-dark-emphasis mb-4">
+                This platform was built to bridge the gap between intent and action. Whether you're looking for local recycling centers, eager to share innovative reuse ideas, or want to connect with fellow environmental enthusiasts, the Recycle Project is your go-to resource.
+            </p>
 
-<div class="text-center my-4"> 
-    <h1 class="display-4 text-primary">About the Recycle Project: Building a Sustainable Future Together</h1>
-    <p class="lead text-muted mt-3">Empowering individuals and communities for a greener planet.</p>
-</div>
+            <h3 class="text-secondary mt-5 mb-3"><i class="fas fa-check-circle me-2"></i> What We Offer:</h3>
+            <div class="list-group list-group-flush mb-5">
+                <div class="list-group-item d-flex align-items-start">
+                    <i class="fas fa-info-circle text-success me-3 mt-1"></i>
+                    <div>
+                        <strong class="text-dark">Information Hub:</strong> Access articles, guides, and tips on effective recycling practices.
+                    </div>
+                </div>
+                <div class="list-group-item d-flex align-items-start">
+                    <i class="fas fa-users text-info me-3 mt-1"></i>
+                    <div>
+                        <strong class="text-dark">Community Connection:</strong> Share your recycling successes, ask questions, and learn from others.
+                    </div>
+                </div>
+                <div class="list-group-item d-flex align-items-start">
+                    <i class="fas fa-map-marker-alt text-danger me-3 mt-1"></i>
+                    <div>
+                        <strong class="text-dark">Resource Locator:</strong> Discover nearby facilities for various recyclable materials.
+                    </div>
+                </div>
+                <div class="list-group-item d-flex align-items-start">
+                    <i class="fas fa-lightbulb text-warning me-3 mt-1"></i>
+                    <div>
+                        <strong class="text-dark">Inspiration:</strong> Find motivation through stories of sustainable living and impactful initiatives.
+                    </div>
+                </div>
+                <div class="list-group-item d-flex align-items-start">
+                    <i class="fas fa-robot text-primary me-3 mt-1"></i>
+                    <div>
+                        <strong class="text-dark">Recycle Bot Search:</strong> Easily search for recycling ideas and information using our integrated Recycle Bot on the navigation bar.
+                    </div>
+                </div>
+            </div>
 
-<div class="row justify-content-center">
-    <div class="col-lg-8">
-        <p class="fs-5 text-dark-emphasis mb-4">
-            At the Recycle Project, our mission is to empower individuals and communities to embrace responsible waste management and create a more sustainable planet. We understand the growing challenges of waste accumulation and the vital role recycling plays in preserving our natural resources and reducing environmental impact.
-        </p>
-        <p class="fs-5 text-dark-emphasis mb-4">
-            This platform was built to bridge the gap between intent and action. Whether you're looking for local recycling centers, eager to share innovative reuse ideas, or want to connect with fellow environmental enthusiasts, the Recycle Project is your go-to resource.
-        </p>
-
-        <h3 class="text-secondary mt-5 mb-3">What We Offer:</h3>
-        <ul class="list-group list-group-flush mb-5">
-            <li class="list-group-item d-flex align-items-center">
-                <i class="fas fa-info-circle text-success me-2"></i>
-                <strong>Information Hub:</strong> Access articles, guides, and tips on effective recycling practices.
-            </li>
-            <li class="list-group-item d-flex align-items-center">
-                <i class="fas fa-users text-info me-2"></i>
-                <strong>Community Connection:</strong> Share your recycling successes, ask questions, and learn from others.
-            </li>
-            <li class="list-group-item d-flex align-items-center">
-                <i class="fas fa-map-marker-alt text-danger me-2"></i>
-                <strong>Resource Locator:</strong> Discover nearby facilities for various recyclable materials.
-            </li>
-            <li class="list-group-item d-flex align-items-center">
-                <i class="fas fa-lightbulb text-warning me-2"></i>
-                <strong>Inspiration:</strong> Find motivation through stories of sustainable living and impactful initiatives.
-            </li>
-            <li class="list-group-item d-flex align-items-center">
-                <i class="fas fa-robot text-primary me-2"></i>
-                <strong>Recycle Bot Search:</strong> Easily search for recycling ideas and information using our integrated Recycle Bot on the navigation bar.
-            </li>
-        </ul>
-
-        <p class="fs-5 text-center text-dark-emphasis mt-5">
-            Join the Recycle Project community today, and let's work hand-in-hand to turn waste into valuable resources, one responsible decision at a time.
-        </p>
+            <p class="fs-5 text-center text-dark-emphasis mt-5 pt-3">
+                Join the Recycle Project community today, and let's work hand-in-hand to turn waste into valuable resources, one responsible decision at a time.
+            </p>
+        </div>
     </div>
 </div>
-
 {% endblock %}
