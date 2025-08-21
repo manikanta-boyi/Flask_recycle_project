@@ -26,7 +26,7 @@ mail = Mail(app) # Initialize Flask-Mail
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
-app.config['SQLALCHEMY_DATABASE_URI']=os.environ.get('DATABASE_URL') or 'sqlite:///'+os.path.join(basedir,'sqlite.data') # used "or " for deployment purpose
+app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///site.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']= False
 
 db = SQLAlchemy(app) # setup for database
